@@ -9,6 +9,9 @@ mat-card{
     max-width: 43%;
     margin: 2.5%;
 }
+mat-card:hover{
+    cursor: pointer;
+}
 mat-card-actions{
     float: right;
 }
