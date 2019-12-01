@@ -1,0 +1,17 @@
+.homeWrapper{
+    width:90%;
+    text-align: center;
+    margin: auto;
+}
+mat-card{
+    float: left;
+    width: 43% !important;
+    max-width: 43%;
+    margin: 2.5%;
+}
+mat-card-actions{
+    float: right;
+}
+mat-card-actions .material-icons{
+    vertical-align: text-bottom;
+}
