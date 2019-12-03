@@ -14,13 +14,15 @@ import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { RestaurantCategoriesComponent } from './restaurant-categories/restaurant-categories.component';
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    RestaurantCategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'categories', component: RestaurantCategoriesComponent }
 
 
     ])
