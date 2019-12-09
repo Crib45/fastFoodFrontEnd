@@ -1,0 +1,13 @@
+<div class="resturantCategoriesWrapper">
+    <h2>Categories</h2>
+    <mat-card *ngFor="let category of listOfCategories">
+        <mat-card-header>
+            <mat-card-title>
+                {{category.categoryName}}
+            </mat-card-title>
+        </mat-card-header>
+        <i class="material-icons">
+            {{category.categoryIcon}}
+        </i>
+    </mat-card>
+</div>

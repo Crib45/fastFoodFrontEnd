@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { BackendService } from '../backend.service';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-login',

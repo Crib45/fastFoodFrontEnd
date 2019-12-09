@@ -1,0 +1,21 @@
+.resturantCategoriesWrapper{
+    width:50%;
+    text-align: center;
+    margin: auto;
+}
+mat-card{
+    float:left;
+    width: 20% !important;
+    max-width: 20%;
+    margin: 2.5%;
+    justify-content: center;
+}
+mat-card:hover{
+    cursor: pointer;
+}
+mat-card-title{
+    max-width: 100%;
+}
+mat-card-header{
+    justify-content: center;
+}

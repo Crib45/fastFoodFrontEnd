@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { BackendService } from '../backend.service';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-register',

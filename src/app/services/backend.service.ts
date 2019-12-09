@@ -32,4 +32,8 @@ export class BackendService {
   getCategoryByIdRestaurant(idRestaurant) {
     return this.http.get(this.url + "category/" + idRestaurant)
   }
+
+  getUserInfo() {
+    return this.http.get(this.url + "")
+  }
 }
