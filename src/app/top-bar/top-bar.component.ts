@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private service: BackendService) { }
 
   ngOnInit() {
   }
 
+  isLoggedIn() {
+    if (sessionStorage.getItem('token') == '') {
+      return false;
+    }
+    else return true;
+  }
+  test() {
+    console.log(sessionStorage.getItem('token'))
+  }
+
+  logout() {
+    this.service.logout();
+  }
 }

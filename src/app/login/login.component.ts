@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,13 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
-  })
+  });
 
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
+    private service: BackendService
   ) { }
 
   ngOnInit() {
@@ -28,18 +29,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let url = "http://localhost:8080/login";
-    console.log(this.loginForm.controls["username"].value,
-      this.loginForm.controls["password"].value)
-    this.http.post<Observable<boolean>>(url, {
-      username: this.loginForm.controls["username"].value,
-      password: this.loginForm.controls["password"].value
-    }).subscribe(isValid => {
+    this.service.login(this.loginForm.controls["username"].value, this.loginForm.controls["password"].value).subscribe(isValid => {
       if (isValid) {
         sessionStorage.setItem(
           'token',
           btoa(this.loginForm.controls["username"].value + ':' + this.loginForm.controls["password"].value)
         );
+
+        console.log(sessionStorage.getItem('token'));
         this.router.navigate(['']);
       } else {
         alert("Authentication failed.");
