@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  listOfRestaurants;
 
-  constructor() { }
+  constructor(private service: BackendService) { }
 
   ngOnInit() {
+    this.getAllRestaurants();
   }
 
+  getAllRestaurants() {
+    return this.service.getAllRestaurants().subscribe(data => {
+      this.listOfRestaurants = data;
+      console.log(this.listOfRestaurants);
+    });
+  }
 }

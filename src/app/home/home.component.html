@@ -1,13 +1,14 @@
 <div class="homeWrapper">
     <h3>Restaurants</h3>
-    <mat-card>
+    <mat-card *ngFor="let restaurant of listOfRestaurants">
         <mat-card-header>
-            <mat-card-title [routerLink]="'/categories'">
-                Restaurant Name
+            <mat-card-title [routerLink]="['/category', restaurant.id]">
+                {{restaurant.restaurantName}}
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            some content here
+            <p> Location: {{restaurant.location}}<br>
+                Description: {{restaurant.restauranDescription}}</p>
         </mat-card-content>
         <mat-card-actions>
             Add to favorite <i class="material-icons">
@@ -15,19 +16,5 @@
             </i>
         </mat-card-actions>
     </mat-card>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>
-                Restaurant Name
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            some content here
-        </mat-card-content>
-        <mat-card-actions>
-            Add to favorite <i class="material-icons">
-                star_border
-            </i>
-        </mat-card-actions>
-    </mat-card>
+
 </div>

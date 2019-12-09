@@ -24,4 +24,12 @@ export class BackendService {
   register(username, password, firstName, lastName, email, phone) {
     return this.http.post(this.url + "register", { username, password, firstName, lastName, email, phone });
   }
+
+  getAllRestaurants() {
+    return this.http.get(this.url + "restaurant");
+  }
+
+  getCategoryByIdRestaurant(idRestaurant) {
+    return this.http.get(this.url + "category/" + idRestaurant)
+  }
 }

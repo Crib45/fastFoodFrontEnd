@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-categories',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurant-categories.component.css']
 })
 export class RestaurantCategoriesComponent implements OnInit {
+  listOfCategories;
 
-  constructor() { }
+  constructor(private service: BackendService, private route: ActivatedRoute,
+    private router: Router, ) { }
 
   ngOnInit() {
+    this.getCategoriesByIdRestaurant();
   }
 
+  getCategoriesByIdRestaurant() {
+    this.service.getCategoryByIdRestaurant(this.route.snapshot.paramMap.get('id')).subscribe(data => {
+      this.listOfCategories = data;
+      console.log(this.listOfCategories);
+    });
+  }
 }

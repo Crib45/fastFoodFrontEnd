@@ -25,15 +25,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    let user = {
-      username: this.registerForm.controls['username'].value,
-      password: this.registerForm.controls['password'].value,
-      firstName: this.registerForm.controls['firstName'].value,
-      lastName: this.registerForm.controls['lastName'].value,
-      email: this.registerForm.controls['email'].value,
-      phone: this.registerForm.controls['phone'].value
-    }
-    console.log(user);
     this.service.register(this.registerForm.controls['username'].value,
       this.registerForm.controls['password'].value,
       this.registerForm.controls['firstName'].value,

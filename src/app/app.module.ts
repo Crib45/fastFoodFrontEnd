@@ -40,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'categories', component: RestaurantCategoriesComponent }
+      { path: 'category/:id', component: RestaurantCategoriesComponent }
 
 
     ])
