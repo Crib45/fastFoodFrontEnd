@@ -16,7 +16,7 @@ export class TopBarComponent implements OnInit {
   }
 
   isLoggedIn() {
-    if (sessionStorage.getItem('token') == '') {
+    if (sessionStorage.getItem('token') == '' || sessionStorage.getItem('token') == null) {
       return false;
     }
     else return true;

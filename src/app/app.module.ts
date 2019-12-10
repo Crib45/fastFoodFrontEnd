@@ -17,6 +17,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RestaurantCategoriesComponent } from './pages/restaurant-categories/restaurant-categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FoodComponent } from './pages/food/food.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { FoodComponent } from './pages/food/food.component';
     RegisterComponent,
     HomeComponent,
     RestaurantCategoriesComponent,
-    FoodComponent
+    FoodComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +44,8 @@ import { FoodComponent } from './pages/food/food.component';
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'category/:id', component: RestaurantCategoriesComponent }
-
+      { path: 'category/:id', component: RestaurantCategoriesComponent },
+      { path: 'profile', component: ProfileComponent }
 
     ])
   ],

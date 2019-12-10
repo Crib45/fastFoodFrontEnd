@@ -12,8 +12,16 @@
                 perm_identity
             </i>
         </button>
+        <button mat-stroked-button [routerLink]="'/profile'" *ngIf='isLoggedIn()'>
+            Profile <i class="material-icons">
+                perm_identity
+            </i>
+        </button>
         <button mat-stroked-button (click)='logout()' *ngIf='isLoggedIn()'>
             Logout
+        </button>
+        <button mat-stroked-button (click)='test()'>
+            test
         </button>
     </mat-toolbar-row>
 
