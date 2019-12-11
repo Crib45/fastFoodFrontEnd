@@ -15,9 +15,10 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { RestaurantCategoriesComponent } from './pages/restaurant-categories/restaurant-categories.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FoodComponent } from './pages/food/food.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthInterceptor } from './http-interceptors/Auth-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,11 +46,18 @@ import { ProfileComponent } from './pages/profile/profile.component';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'category/:id', component: RestaurantCategoriesComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
+      { path: 'food/:id', component: FoodComponent }
 
     ])
   ],
-  providers: [],
+  providers: [
+    // {
+    //   // provide: HTTP_INTERCEPTORS,
+    //   // useClass: AuthInterceptor,
+    //   // multi: true,
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

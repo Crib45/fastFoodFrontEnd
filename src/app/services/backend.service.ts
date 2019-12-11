@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +34,23 @@ export class BackendService {
   }
 
   getUserInfo() {
-    return this.http.get(this.url + "")
+    let headers = this.getHeaders;
+    return this.http.get(this.url + "user", { headers });
+    // return this.http.get(this.url + "user");
+  }
+
+  getAuthorizationToken() {
+    return sessionStorage.getItem('token');
+  }
+
+  get getHeaders() {
+    let headers = new HttpHeaders();
+    headers = headers.append("Authorization", "Basic " + sessionStorage.getItem('token'));
+    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
+    return headers
+  }
+
+  getFoodByIdCategory(idCategory) {
+    return this.http.get(this.url + "food/getAllByIdCategory/" + idCategory);
   }
 }
