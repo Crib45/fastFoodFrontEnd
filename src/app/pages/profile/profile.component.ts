@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
   getUserInfo() {
     this.service.getUserInfo().subscribe(data => {
       this.userInfo = data;
-      console.log(this.userInfo);
     })
   }
 }

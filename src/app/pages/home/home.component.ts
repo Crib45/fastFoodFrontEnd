@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   getAllRestaurants() {
     return this.service.getAllRestaurants().subscribe(data => {
       this.listOfRestaurants = data;
-      console.log(this.listOfRestaurants);
     });
   }
 }

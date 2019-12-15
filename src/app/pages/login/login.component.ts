@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
           btoa(this.loginForm.controls["username"].value + ':' + this.loginForm.controls["password"].value)
         );
 
-        console.log(sessionStorage.getItem('token'));
         this.router.navigate(['']);
       } else {
         alert("Authentication failed.");

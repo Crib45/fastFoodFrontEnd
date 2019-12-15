@@ -1,6 +1,6 @@
-<div class="resturantCategoriesWrapper">
+<div class="restaurantCategoriesWrapper">
     <h2>Categories</h2>
-    <mat-card *ngFor="let category of listOfCategories">
+    <mat-card *ngFor="let category of listOfCategories" [routerLink]="['/food', category.id]">
         <mat-card-header>
             <mat-card-title>
                 {{category.categoryName}}

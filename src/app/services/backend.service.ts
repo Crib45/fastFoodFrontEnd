@@ -30,7 +30,7 @@ export class BackendService {
   }
 
   getCategoryByIdRestaurant(idRestaurant) {
-    return this.http.get(this.url + "category/" + idRestaurant)
+    return this.http.get(this.url + "category/getAllByIdRestaurant/" + idRestaurant)
   }
 
   getUserInfo() {
@@ -52,5 +52,9 @@ export class BackendService {
 
   getFoodByIdCategory(idCategory) {
     return this.http.get(this.url + "food/getAllByIdCategory/" + idCategory);
+  }
+
+  getCategoryById(idCategory) {
+    return this.http.get(this.url + "category/" + idCategory);
   }
 }

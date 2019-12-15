@@ -1,1 +1,10 @@
-<p>food works!</p>
+<div class="foodWrapper">
+    <h2>{{chosenCategory.categoryName}}</h2>
+    <mat-card *ngFor="let food of listOfFood">
+        <mat-card-header>
+            <mat-card-title [routerLink]="['/food', food.id]">
+                {{food.foodName}}
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>

@@ -20,7 +20,6 @@ export class RestaurantCategoriesComponent implements OnInit {
   getCategoriesByIdRestaurant() {
     this.service.getCategoryByIdRestaurant(this.route.snapshot.paramMap.get('id')).subscribe(data => {
       this.listOfCategories = data;
-      console.log(this.listOfCategories);
     });
   }
 }
