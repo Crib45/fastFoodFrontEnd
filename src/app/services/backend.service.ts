@@ -35,7 +35,7 @@ export class BackendService {
 
   getUserInfo() {
     let headers = this.getHeaders;
-    return this.http.get(this.url + "user", { headers });
+    return this.http.get(this.url + "profile", { headers });
     // return this.http.get(this.url + "user");
   }
 
@@ -56,5 +56,20 @@ export class BackendService {
 
   getCategoryById(idCategory) {
     return this.http.get(this.url + "category/" + idCategory);
+  }
+
+  isLoggedIn() {
+    if (sessionStorage.getItem('token') == '' || sessionStorage.getItem('token') == null) {
+      return false;
+    }
+    else return true;
+  }
+
+  saveUserEdits(user) {
+    return this.http.post(this.url + 'save', user, { responseType: 'text' });
+  }
+
+  getUserRestaurants() {
+    return this.http.get(this.url + 'getAllByUser', { responseType: 'json' })
   }
 }

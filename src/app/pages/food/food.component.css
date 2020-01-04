@@ -1,5 +1,24 @@
 .foodWrapper{
-    width:40%;
+    width:60%;
     margin: auto;
     text-align: center;
 }
+
+mat-card{
+    margin: 2.5%;
+}
+
+.mat-card-image{
+    margin-top: 0.1% !important;
+    max-width:20%;
+}
+.foodDescriptionContainer{
+    float:left;
+    width:65%;
+}
+/* .foodImageContainer{
+    float: left;
+    width: 33%;
+    height: 33%;
+    object-fit: contain;
+} */

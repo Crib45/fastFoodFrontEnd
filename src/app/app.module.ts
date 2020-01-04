@@ -19,6 +19,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FoodComponent } from './pages/food/food.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthInterceptor } from './http-interceptors/Auth-interceptor';
+import { CartComponent } from './pages/cart/cart.component';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { AuthInterceptor } from './http-interceptors/Auth-interceptor';
     HomeComponent,
     RestaurantCategoriesComponent,
     FoodComponent,
-    ProfileComponent
+    ProfileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { AuthInterceptor } from './http-interceptors/Auth-interceptor';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatTableModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
@@ -47,8 +51,8 @@ import { AuthInterceptor } from './http-interceptors/Auth-interceptor';
       { path: 'register', component: RegisterComponent },
       { path: 'category/:id', component: RestaurantCategoriesComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'food/:id', component: FoodComponent }
-
+      { path: 'food/:id', component: FoodComponent },
+      { path: 'cart', component: CartComponent }
     ])
   ],
   providers: [

@@ -1,5 +1,8 @@
-.profileWrapper{
+.cartWrapper{
     width:60%;
     margin: auto;
     text-align: center;
+}
+table.mat-table{
+    width: 100%;
 }

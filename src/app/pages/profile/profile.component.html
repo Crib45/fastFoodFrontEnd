@@ -1,1 +1,26 @@
-<p>profile works!</p>
+<div class="profileWrapper">
+    <h3>Your information</h3>
+    <form [formGroup]="profileForm" (ngSubmit)="saveEdits()">
+        <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" readonly>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="First name" formControlName="firstName">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Last name" formControlName="lastName">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="E-mail" formControlName="email">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Phone number" formControlName="phone">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button>Confirm changes</button>
+    </form>
+</div>

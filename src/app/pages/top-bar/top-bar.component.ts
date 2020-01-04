@@ -16,10 +16,7 @@ export class TopBarComponent implements OnInit {
   }
 
   isLoggedIn() {
-    if (sessionStorage.getItem('token') == '' || sessionStorage.getItem('token') == null) {
-      return false;
-    }
-    else return true;
+    return this.service.isLoggedIn();
   }
   test() {
     console.log(sessionStorage.getItem('token'))

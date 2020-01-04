@@ -29,7 +29,9 @@ export class FoodComponent implements OnInit {
   getCategory() {
     this.service.getCategoryById(this.idCategory).subscribe(data => {
       this.chosenCategory = data;
-      console.log(this.chosenCategory)
     });
+  }
+  isLoggedIn() {
+    return this.service.isLoggedIn()
   }
 }

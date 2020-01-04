@@ -5,6 +5,18 @@
             <mat-card-title [routerLink]="['/food', food.id]">
                 {{food.foodName}}
             </mat-card-title>
+
         </mat-card-header>
+        <mat-card-content class='foodDescriptionContainer'>
+            <div>
+                {{food.description}}
+            </div>
+        </mat-card-content>
+        <!-- <div class="foodImageContainer"> -->
+        <img mat-card-image [src]="food.image" alt="Photo of a Shiba Inu" class='cardImage'> <br>
+        <button mat-stroked-button *ngIf='isLoggedIn()'>
+            Add to cart
+        </button>
+        <!-- </div> -->
     </mat-card>
 </div>
