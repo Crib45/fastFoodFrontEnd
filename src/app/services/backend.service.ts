@@ -53,11 +53,18 @@ export class BackendService {
   getFoodByIdCategory(idCategory) {
     return this.http.get(this.url + "food/getAllByIdCategory/" + idCategory);
   }
-
+  // -- Category --
   getCategoryById(idCategory) {
     return this.http.get(this.url + "category/" + idCategory);
   }
 
+  getAllCategoryByIdRestaurant(idRestaurant) {
+    return this.http.get(this.url + "category/getAllByIdRestaurant/" + idRestaurant);
+  }
+  deleteCategoryById(idCategory) {
+    return this.http.delete(this.url + "category/" + idCategory, { responseType: 'text' });
+  }
+  //-------------
   isLoggedIn() {
     if (sessionStorage.getItem('token') == '' || sessionStorage.getItem('token') == null) {
       return false;
@@ -69,7 +76,27 @@ export class BackendService {
     return this.http.post(this.url + 'save', user, { responseType: 'text' });
   }
 
-  getUserRestaurants() {
-    return this.http.get(this.url + 'getAllByUser', { responseType: 'json' })
+
+
+  checkRestaurantAccess() {
+
   }
+  //--Restaurant--
+  saveRestaurantEdits(restaurant) {
+    return this.http.post(this.url + 'restaurant/save', restaurant, { responseType: 'text' });
+  }
+  getUserRestaurants() {
+    let headers = this.getHeaders;
+    return this.http.get(this.url + 'restaurant/getAllOwnedByUser', { headers })
+  }
+
+  getEmployedAtRestaurant() {
+    let headers = this.getHeaders;
+    return this.http.get(this.url + 'restaurant/getByEmployee', { headers })
+  }
+
+  getRestaurantById(idRestaurant) {
+    return this.http.get(this.url + 'restaurant/' + idRestaurant, { responseType: 'json' })
+  }
+  //---------------
 }

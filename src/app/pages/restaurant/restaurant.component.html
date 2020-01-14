@@ -1,0 +1,84 @@
+<div class="restaurantWrapper">
+    <div class='restaurantInfo'>
+        <h3>Information</h3>
+        <form [formGroup]="restaurantForm" (ngSubmit)="saveEdits()">
+            <mat-form-field>
+                <input matInput placeholder="Name" formControlName="restaurantName">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input matInput formControlName="restauranDescription" placeholder="Description">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input matInput formControlName="location" placeholder="Location">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input matInput formControlName="hoursStart" placeholder="Hours start">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input matInput formControlName="hoursEnd" placeholder="Hours end">
+            </mat-form-field><br>
+            <mat-form-field>
+                <input matInput formControlName="phone" placeholder="Phone">
+            </mat-form-field><br>
+            <button mat-raised-button>Confirm changes</button>
+        </form>
+    </div>
+    <div class='restaurantCategories'>
+        <h3>Categories
+            <i class="material-icons addIcon" (click)='editCategory("create",null)'>
+                add_circle_outline
+            </i>
+        </h3>
+        <table mat-table [dataSource]="dataSourceCategories" class="mat-elevation-z8">
+            <ng-container matColumnDef="categoryName">
+                <th mat-header-cell *matHeaderCellDef> Category name </th>
+                <td mat-cell *matCellDef="let element"
+                    (click)='getFoodByIdCategory(element.id); chosenCategory=element.categoryName'>
+                    {{element.categoryName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="editCategory">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"><button mat-stroked-button>
+                        Edit <i class="material-icons">
+                            edit
+                        </i>
+                    </button></td>
+            </ng-container>
+            <ng-container matColumnDef="deleteCategory">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"><button mat-stroked-button
+                        (click)='confirmDeleteCategory(element)'>
+                        Delete
+                    </button></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <div class='restaurantFood'>
+        <h3>{{chosenCategory}} - Food</h3>
+        <table mat-table [dataSource]="dataSourceFood" class="mat-elevation-z8">
+            <ng-container matColumnDef="foodName">
+                <th mat-header-cell *matHeaderCellDef> Food name </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.foodName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="editFood">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"><button mat-stroked-button>
+                        Edit <i class="material-icons">
+                            edit
+                        </i>
+                    </button></td>
+            </ng-container>
+            <ng-container matColumnDef="deleteFood">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"><button mat-stroked-button>
+                        Delete
+                    </button></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+        </table>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
+import { ViewOrdersComponent } from '../restaurant/view-orders/view-orders.component';
 
 @Component({
   selector: 'app-profile',
@@ -10,8 +12,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ProfileComponent implements OnInit {
   userInfo;
   returnMessage: Object;
+  ownedRestaurants: any;
+  displayedColumns: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'checkOrders'];
+  dataSource = new MatTableDataSource<any>([]);
+  displayedColumns1: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'checkOrders'];
+  dataSource1 = new MatTableDataSource<any>([]);
+  employedAtRestaurant: Object;
 
-  constructor(private service: BackendService) { }
+
+  constructor(private service: BackendService, private dialog: MatDialog) { }
 
   profileForm = new FormGroup({
     username: new FormControl(''),
@@ -23,6 +32,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
+    this.getUserRestaurants();
+    this.getEmployedRestaurant();
   }
 
   getUserInfo() {
@@ -50,7 +61,28 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserRestaurants() {
-    // this.service.
+    this.service.getUserRestaurants().subscribe(data => {
+      this.ownedRestaurants = data;
+      this.dataSource.data = this.ownedRestaurants;
+    });
   }
 
+  getEmployedRestaurant() {
+    this.service.getEmployedAtRestaurant().subscribe(data => {
+      this.employedAtRestaurant = data;
+      this.dataSource1.data.push(this.employedAtRestaurant);
+      this.dataSource1.data = this.dataSource1.data.slice();
+      console.log(this.dataSource1)
+    });
+  }
+
+  checkOrders(restaurant) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      restaurant: restaurant
+    };
+
+    this.dialog.open(ViewOrdersComponent, dialogConfig);
+  }
 }

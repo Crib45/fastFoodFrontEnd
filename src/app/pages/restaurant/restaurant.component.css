@@ -1,0 +1,37 @@
+.restaurantWrapper{
+    width:90%;
+    margin: auto;
+    text-align: center;
+    margin-top: 2% !important;
+}
+.restaurantInfo{
+    float: left;
+    width:30%;
+}
+table.mat-table{
+    width: 100%;
+}
+table td {
+    text-align: left;
+}
+.restaurantCategories{
+    float: left;
+    width:30%;
+}
+
+.restaurantFood{
+    margin-left: 1%;
+    float: left;
+    width:30%;
+}
+
+.addIcon{
+    vertical-align: text-top;
+    cursor: pointer;
+}
+td.mat-column-categoryName{
+    cursor: pointer;
+}
+td.mat-column-categoryName:hover{
+    background-color: rgb(241, 241, 241);
+}

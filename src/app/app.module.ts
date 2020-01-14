@@ -8,11 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatCardModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatDialogModule } from '@angular/material';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { RestaurantCategoriesComponent } from './pages/restaurant-categories/restaurant-categories.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -21,6 +21,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthInterceptor } from './http-interceptors/Auth-interceptor';
 import { CartComponent } from './pages/cart/cart.component';
 import { MatTableModule } from '@angular/material/table';
+import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { ViewOrdersComponent } from './pages/restaurant/view-orders/view-orders.component';
+import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-category-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,19 +34,24 @@ import { MatTableModule } from '@angular/material/table';
     RestaurantCategoriesComponent,
     FoodComponent,
     ProfileComponent,
-    CartComponent
+    CartComponent,
+    RestaurantComponent,
+    ViewOrdersComponent,
+    EditCategoryDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
     MatTableModule,
+    MatDialogModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
@@ -52,7 +60,8 @@ import { MatTableModule } from '@angular/material/table';
       { path: 'category/:id', component: RestaurantCategoriesComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'food/:id', component: FoodComponent },
-      { path: 'cart', component: CartComponent }
+      { path: 'cart', component: CartComponent },
+      { path: 'restaurant/:id', component: RestaurantComponent }
     ])
   ],
   providers: [
@@ -62,6 +71,7 @@ import { MatTableModule } from '@angular/material/table';
     //   // multi: true,
     // }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent]
 })
 export class AppModule { }

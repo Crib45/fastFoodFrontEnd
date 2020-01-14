@@ -23,4 +23,65 @@
         <br>
         <button mat-raised-button>Confirm changes</button>
     </form>
+    <br>
+    <h3>Your restaurants</h3>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="restaurantName">
+            <th mat-header-cell *matHeaderCellDef> Restaurant name </th>
+            <td mat-cell *matCellDef="let element"> {{element.restaurantName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="restauranDescription">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.restauranDescription}} </td>
+        </ng-container>
+        <ng-container matColumnDef="editRestaurant">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"><button mat-stroked-button
+                    [routerLink]="['/restaurant', element.id]">
+                    Edit <i class="material-icons">
+                        edit
+                    </i>
+                </button></td>
+        </ng-container>
+        <ng-container matColumnDef="checkOrders">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"><button mat-stroked-button (click)='checkOrders(element)'>
+                    Check orders <i class="material-icons">
+                        edit
+                    </i>
+                </button></td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <h3>Restaurants you work at</h3>
+    <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+        <ng-container matColumnDef="restaurantName">
+            <th mat-header-cell *matHeaderCellDef> Restaurant name </th>
+            <td mat-cell *matCellDef="let element"> {{element.restaurantName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="restauranDescription">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.restauranDescription}} </td>
+        </ng-container>
+        <ng-container matColumnDef="editRestaurant">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"><button mat-stroked-button
+                    [routerLink]="['/restaurant', element.id]">
+                    Edit <i class="material-icons">
+                        edit
+                    </i>
+                </button></td>
+        </ng-container>
+        <ng-container matColumnDef="checkOrders">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"><button mat-stroked-button (click)='checkOrders(element)'>
+                    Check orders <i class="material-icons">
+                        edit
+                    </i>
+                </button></td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+    </table>
 </div>

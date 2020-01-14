@@ -3,3 +3,19 @@
     margin: auto;
     text-align: center;
 }
+table.mat-table{
+    width: 100%;
+}
+table td {
+    text-align: left;
+}
+
+.mat-column-restaurantName{
+    width: 30% !important;
+}
+.mat-column-restauranDescription{
+    width: 50% !important;
+}
+.mat-column-editRestaurant{
+    width: 19% !important;
+}
