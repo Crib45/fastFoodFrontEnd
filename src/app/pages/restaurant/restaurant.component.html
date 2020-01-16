@@ -25,7 +25,7 @@
     </div>
     <div class='restaurantCategories'>
         <h3>Categories
-            <i class="material-icons addIcon" (click)='editCategory("create",null)'>
+            <i class="material-icons addIcon" (click)='editCategory("create",null,restaurant.id)'>
                 add_circle_outline
             </i>
         </h3>
@@ -38,7 +38,8 @@
             </ng-container>
             <ng-container matColumnDef="editCategory">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element"><button mat-stroked-button>
+                <td mat-cell *matCellDef="let element"><button mat-stroked-button
+                        (click)='editCategory("edit",element,restaurant.id)'>
                         Edit <i class="material-icons">
                             edit
                         </i>
@@ -73,7 +74,7 @@
             </ng-container>
             <ng-container matColumnDef="deleteFood">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let element"><button mat-stroked-button>
+                <td mat-cell *matCellDef="let element"><button mat-stroked-button (click)='deleteFood(element)'>
                         Delete
                     </button></td>
             </ng-container>

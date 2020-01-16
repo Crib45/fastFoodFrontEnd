@@ -1,7 +1,8 @@
 <div class="editCategoryWrapper">
     <h3>Category Info</h3>
     <mat-form-field>
-        <input matInput placeholder="Name" [(ngModel)]="categoryName">
+        <input matInput placeholder="Name" [(ngModel)]="category.categoryName">
     </mat-form-field><br>
-    <button mat-raised-button>Confirm</button>
+    <button mat-raised-button
+        (click)='saveCategory(category.categoryName,category.id,category.restaurantId)'>Confirm</button>
 </div>

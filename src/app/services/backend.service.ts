@@ -53,6 +53,10 @@ export class BackendService {
   getFoodByIdCategory(idCategory) {
     return this.http.get(this.url + "food/getAllByIdCategory/" + idCategory);
   }
+
+  deleteFoodById(idCategory) {
+    return this.http.delete(this.url + "food/" + idCategory, { responseType: 'text' });
+  }
   // -- Category --
   getCategoryById(idCategory) {
     return this.http.get(this.url + "category/" + idCategory);
@@ -63,6 +67,10 @@ export class BackendService {
   }
   deleteCategoryById(idCategory) {
     return this.http.delete(this.url + "category/" + idCategory, { responseType: 'text' });
+  }
+
+  saveCategory(categoryName, id, restaurantId) {
+    return this.http.post(this.url + "category/save", { categoryName, id, restaurantId }, { responseType: 'text' });
   }
   //-------------
   isLoggedIn() {

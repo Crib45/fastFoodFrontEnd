@@ -98,12 +98,22 @@ export class RestaurantComponent implements OnInit {
     }
   }
 
-  editCategory(type: String, category) {
+  deleteFood(food) {
+    if (confirm("Are you sure you want to delete " + food.foodName)) {
+      this.service.deleteFoodById(food.id).subscribe(data => {
+        this.returnMessage = data;
+        this.getCategoriesByIdRestaurant(this.restaurantId)
+      })
+    }
+  }
+
+  editCategory(type: String, category, restaurantId) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
       dialogType: type,
-      category: category
+      category: category,
+      restaurantId: restaurantId
     };
 
     this.dialog.open(EditCategoryDialogComponent, dialogConfig);
