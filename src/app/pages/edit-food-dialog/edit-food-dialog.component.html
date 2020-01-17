@@ -1,0 +1,17 @@
+<div class="editFoodWrapper">
+    <h3>Category Info</h3>
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="food.foodName">
+    </mat-form-field><br>
+    <mat-form-field>
+        <input type='number' matInput placeholder="Price" [(ngModel)]="food.price">
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Description" [(ngModel)]="food.description">
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Image" [(ngModel)]="food.image">
+    </mat-form-field><br>
+    <button mat-raised-button
+        (click)='saveFood(food.foodName,food.price,food.description,food.image,food.id,food.categoryId)'>Confirm</button>
+</div>

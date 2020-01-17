@@ -49,13 +49,16 @@ export class BackendService {
     headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
     return headers
   }
-
+  // -- Food --
   getFoodByIdCategory(idCategory) {
     return this.http.get(this.url + "food/getAllByIdCategory/" + idCategory);
   }
 
   deleteFoodById(idCategory) {
     return this.http.delete(this.url + "food/" + idCategory, { responseType: 'text' });
+  }
+  saveFood(foodName, price, description, image, id, categoryId) {
+    return this.http.post(this.url + "food/save", { foodName, price, description, image, id, categoryId }, { responseType: 'text' });
   }
   // -- Category --
   getCategoryById(idCategory) {

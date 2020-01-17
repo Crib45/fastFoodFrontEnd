@@ -35,3 +35,6 @@ td.mat-column-categoryName{
 td.mat-column-categoryName:hover{
     background-color: rgb(241, 241, 241);
 }
+.hideDiv{
+    display: none;
+}

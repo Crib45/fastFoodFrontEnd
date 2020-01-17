@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatCardModule, MatDialogModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatDialogModule, MatIconModule } from '@angular/material';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RouterModule } from '@angular/router';
@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { ViewOrdersComponent } from './pages/restaurant/view-orders/view-orders.component';
 import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-category-dialog.component';
+import { EditFoodDialogComponent } from './pages/edit-food-dialog/edit-food-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-c
     CartComponent,
     RestaurantComponent,
     ViewOrdersComponent,
-    EditCategoryDialogComponent
+    EditCategoryDialogComponent,
+    EditFoodDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-c
     MatCardModule,
     MatTableModule,
     MatDialogModule,
+    MatIconModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
@@ -72,6 +75,6 @@ import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-c
     // }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent]
+  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent, EditFoodDialogComponent]
 })
 export class AppModule { }

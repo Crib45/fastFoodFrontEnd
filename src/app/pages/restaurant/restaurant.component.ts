@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatTableDataSource, MatDialogConfig, MatDialog } from '@angular/material';
 import { EditCategoryDialogComponent } from '../edit-category-dialog/edit-category-dialog.component';
+import { EditFoodDialogComponent } from '../edit-food-dialog/edit-food-dialog.component';
 
 @Component({
   selector: 'app-restaurant',
@@ -16,7 +17,7 @@ export class RestaurantComponent implements OnInit {
   restaurant;
   categories;
   food;
-  chosenCategory: string = '';
+  chosenCategory = { categoryName: '', id: null };
   restaurantForm = new FormGroup({
     restaurantName: new FormControl(''),
     restauranDescription: new FormControl(''),
@@ -105,6 +106,7 @@ export class RestaurantComponent implements OnInit {
         this.getCategoriesByIdRestaurant(this.restaurantId)
       })
     }
+
   }
 
   editCategory(type: String, category, restaurantId) {
@@ -117,5 +119,16 @@ export class RestaurantComponent implements OnInit {
     };
 
     this.dialog.open(EditCategoryDialogComponent, dialogConfig);
+  }
+  editFood(type: String, food, categoryId) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      dialogType: type,
+      food: food,
+      categoryId: categoryId
+    };
+
+    this.dialog.open(EditFoodDialogComponent, dialogConfig);
   }
 }
