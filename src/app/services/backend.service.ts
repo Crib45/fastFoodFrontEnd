@@ -29,8 +29,8 @@ export class BackendService {
     return this.http.get(this.url + "restaurant");
   }
 
-  getCategoryByIdRestaurant(idRestaurant) {
-    return this.http.get(this.url + "category/getAllByIdRestaurant/" + idRestaurant)
+  getAllUsersEmployedAtByIdRestaurant(idRestaurant) {
+    return this.http.get(this.url + "getAllUsersEmployedBy/" + idRestaurant, { responseType: 'json' });
   }
 
   getUserInfo() {
@@ -38,6 +38,16 @@ export class BackendService {
     return this.http.get(this.url + "profile", { headers });
     // return this.http.get(this.url + "user");
   }
+
+  removeUserEmployedAt(user) {
+    return this.http.post(this.url + "removeUserEmployedAt", user, { responseType: 'text' })
+  }
+
+  addUserEmployedAt(email, restaurantId) {
+    return this.http.post(this.url + "addUserEmployedAt/" + restaurantId, email, { responseType: 'text' })
+  }
+
+
 
   getAuthorizationToken() {
     return sessionStorage.getItem('token');
@@ -52,6 +62,11 @@ export class BackendService {
   // -- Food --
   getFoodByIdCategory(idCategory) {
     return this.http.get(this.url + "food/getAllByIdCategory/" + idCategory);
+  }
+
+
+  getCategoryByIdRestaurant(idRestaurant) {
+    return this.http.get(this.url + "category/getAllByIdRestaurant/" + idRestaurant)
   }
 
   deleteFoodById(idCategory) {

@@ -5,4 +5,9 @@
 }
 table.mat-table{
     width: 100%;
+    margin-bottom: 2%;
+}
+
+.mat-raised-button{
+    margin-left: 1%
 }

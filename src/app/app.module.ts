@@ -25,6 +25,7 @@ import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { ViewOrdersComponent } from './pages/restaurant/view-orders/view-orders.component';
 import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-category-dialog.component';
 import { EditFoodDialogComponent } from './pages/edit-food-dialog/edit-food-dialog.component';
+import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { EditFoodDialogComponent } from './pages/edit-food-dialog/edit-food-dial
     RestaurantComponent,
     ViewOrdersComponent,
     EditCategoryDialogComponent,
-    EditFoodDialogComponent
+    EditFoodDialogComponent,
+    EditEmployeesComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,6 @@ import { EditFoodDialogComponent } from './pages/edit-food-dialog/edit-food-dial
     // }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent, EditFoodDialogComponent]
+  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent, EditFoodDialogComponent, EditEmployeesComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { BackendService } from 'src/app/services/backend.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
 import { ViewOrdersComponent } from '../restaurant/view-orders/view-orders.component';
+import { EditEmployeesComponent } from '../edit-employees/edit-employees.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
   userInfo;
   returnMessage: Object;
   ownedRestaurants: any;
-  displayedColumns: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'checkOrders'];
+  displayedColumns: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'manageEmployees', 'checkOrders'];
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns1: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'checkOrders'];
   dataSource1 = new MatTableDataSource<any>([]);
@@ -84,5 +85,16 @@ export class ProfileComponent implements OnInit {
     };
 
     this.dialog.open(ViewOrdersComponent, dialogConfig);
+  }
+
+  editEmployees(restaurant) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.data = {
+      restaurant: restaurant
+    };
+
+    this.dialog.open(EditEmployeesComponent, dialogConfig);
   }
 }
