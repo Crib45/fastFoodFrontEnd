@@ -125,4 +125,29 @@ export class BackendService {
     return this.http.get(this.url + 'restaurant/' + idRestaurant, { responseType: 'json' })
   }
   //---------------
+
+  saveOrder(restaurantId, dateOfOrder, notesOrder, statusOrder, userId, foodOrderArray) {
+    return this.http.post(this.url + 'order/save', { restaurantId, dateOfOrder, notesOrder, statusOrder, userId, foodOrderArray }, { responseType: 'json' });
+  }
+  saveFoodOrder(orderId, foodId) {
+    return this.http.post(this.url + 'order/foodOrder/save', { orderId, foodId }, { responseType: 'text' });
+  }
+  addToFavorites(idRestaurant) {
+    let headers = this.getHeaders;
+    return this.http.get(this.url + 'addToFavorites/' + idRestaurant, { headers })
+  }
+
+  getFavorites() {
+    let headers = this.getHeaders;
+    return this.http.get(this.url + 'getFavorites', { headers })
+  }
+
+  removeFavorite(favoriteId) {
+    return this.http.delete(this.url + "deleteFavorite/" + favoriteId, { responseType: 'text' });
+  }
+
+  getAllOrderByIdRestaurantAndStatus(restaurantId, statusOrder) {
+    return this.http.get(this.url + 'order/getAllByIdRestaurantAndStatus/' + restaurantId + "/" + statusOrder, { responseType: 'json' })
+  }
+
 }

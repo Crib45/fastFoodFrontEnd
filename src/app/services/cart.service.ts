@@ -1,22 +1,40 @@
 import { Injectable } from '@angular/core';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
+  foodOrderList = [];
+
   constructor() { }
 
-  setCart() {
-    localStorage.setItem('cart', null);
+  public resetCart() {
+    this.foodOrderList = [];
+    return "Cart canceled";
   }
 
-  removeCart() {
-    localStorage.removeItem('cart');
+  public removeFromCart(item) {
+    for (let i = 0; i < this.foodOrderList.length; i++) {
+      if (this.foodOrderList[i].id == item.id) {
+        this.foodOrderList.splice(i, 1);
+        break;
+      }
+    }
+    return "removed item";
   }
 
-  addToCart(item) {
-
+  public addToCart(item) {
+    this.foodOrderList.push(item);
+    console.log(this.foodOrderList);
+    return "added to cart";
   }
+
+  public getCartItems() {
+    return this.foodOrderList;
+  }
+
 
 }

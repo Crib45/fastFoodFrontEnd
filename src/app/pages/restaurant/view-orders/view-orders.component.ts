@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { BackendService } from 'src/app/services/backend.service';
+import { stat } from 'fs';
 
 
 @Component({
@@ -9,17 +11,24 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 })
 export class ViewOrdersComponent implements OnInit {
   restaurant: any;
+  orders;
 
-  constructor(private dialogRef: MatDialogRef<ViewOrdersComponent>,
+  constructor(private dialogRef: MatDialogRef<ViewOrdersComponent>, private service: BackendService,
     @Inject(MAT_DIALOG_DATA) data) {
     this.restaurant = data.restaurant;
   }
 
   ngOnInit() {
-    console.log(this.restaurant)
+    this.getOrders(this.restaurant.id, 'InProgress')
+
   }
 
-
+  getOrders(restaurantId, status) {
+    this.service.getAllOrderByIdRestaurantAndStatus(restaurantId, status).subscribe(data => {
+      this.orders = data;
+      console.log(this.orders)
+    })
+  }
 
 
   close() {

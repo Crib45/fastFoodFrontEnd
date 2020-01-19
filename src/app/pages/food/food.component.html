@@ -14,7 +14,7 @@
         </mat-card-content>
         <!-- <div class="foodImageContainer"> -->
         <img mat-card-image [src]="food.image" alt="Photo of a Shiba Inu" class='cardImage'> <br>
-        <button mat-stroked-button *ngIf='isLoggedIn()'>
+        <button mat-stroked-button *ngIf='isLoggedIn()' (click)='addToCart(food)'>
             Add to cart
         </button>
         <!-- </div> -->

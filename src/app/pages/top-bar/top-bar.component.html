@@ -12,6 +12,11 @@
                 perm_identity
             </i>
         </button>
+        <button mat-stroked-button (click)="openFavorites()" *ngIf='isLoggedIn()'>
+            Favorite restaurants <i class="material-icons">
+                star
+            </i>
+        </button>
         <button mat-stroked-button [routerLink]="'/cart'" *ngIf='isLoggedIn()'>
             Cart <i class="material-icons">
                 shopping_cart
@@ -24,9 +29,6 @@
         </button>
         <button mat-stroked-button (click)='logout()' *ngIf='isLoggedIn()'>
             Logout
-        </button>
-        <button mat-stroked-button (click)='test()'>
-            test
         </button>
     </mat-toolbar-row>
 

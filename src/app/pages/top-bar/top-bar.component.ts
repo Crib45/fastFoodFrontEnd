@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { EditEmployeesComponent } from '../edit-employees/edit-employees.component';
+import { FavoritesDialogComponent } from '../favorites-dialog/favorites-dialog.component';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,8 +12,7 @@ import { BackendService } from '../../services/backend.service';
 export class TopBarComponent implements OnInit {
 
 
-  constructor(
-    private service: BackendService) { }
+  constructor(private service: BackendService, private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -25,4 +27,13 @@ export class TopBarComponent implements OnInit {
   logout() {
     this.service.logout();
   }
+
+  openFavorites() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+
+    this.dialog.open(FavoritesDialogComponent, dialogConfig);
+  }
+
 }

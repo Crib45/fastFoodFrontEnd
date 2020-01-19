@@ -26,6 +26,8 @@ import { ViewOrdersComponent } from './pages/restaurant/view-orders/view-orders.
 import { EditCategoryDialogComponent } from './pages/edit-category-dialog/edit-category-dialog.component';
 import { EditFoodDialogComponent } from './pages/edit-food-dialog/edit-food-dialog.component';
 import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.component';
+import { CartService } from './services/cart.service';
+import { FavoritesDialogComponent } from './pages/favorites-dialog/favorites-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.co
     ViewOrdersComponent,
     EditCategoryDialogComponent,
     EditFoodDialogComponent,
-    EditEmployeesComponent
+    EditEmployeesComponent,
+    FavoritesDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.co
     ])
   ],
   providers: [
+    CartService
     // {
     //   // provide: HTTP_INTERCEPTORS,
     //   // useClass: AuthInterceptor,
@@ -77,6 +81,6 @@ import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.co
     // }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent, EditFoodDialogComponent, EditEmployeesComponent]
+  entryComponents: [ViewOrdersComponent, EditCategoryDialogComponent, EditFoodDialogComponent, EditEmployeesComponent, FavoritesDialogComponent]
 })
 export class AppModule { }

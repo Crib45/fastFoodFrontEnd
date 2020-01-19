@@ -10,10 +10,11 @@
             <p> Location: {{restaurant.location}}<br>
                 Description: {{restaurant.restauranDescription}}</p>
         </mat-card-content>
-        <mat-card-actions>
-            Add to favorite <i class="material-icons">
-                star_border
-            </i>
+        <mat-card-actions><button mat-raised-button (click)='addToFavorites(restaurant.id)'>
+                Add to favorite <i class="material-icons">
+                    star_border
+                </i>
+            </button>
         </mat-card-actions>
     </mat-card>
 
