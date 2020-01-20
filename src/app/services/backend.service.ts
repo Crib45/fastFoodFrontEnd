@@ -126,12 +126,18 @@ export class BackendService {
   }
   //---------------
 
-  saveOrder(restaurantId, dateOfOrder, notesOrder, statusOrder, userId, foodOrderArray) {
-    return this.http.post(this.url + 'order/save', { restaurantId, dateOfOrder, notesOrder, statusOrder, userId, foodOrderArray }, { responseType: 'json' });
+  saveOrder(restaurantId, dateOfOrder, notesOrder, statusOrder, userId) {
+    return this.http.post(this.url + 'order/save', { restaurantId, dateOfOrder, notesOrder, statusOrder, userId }, { responseType: 'json' });
   }
   saveFoodOrder(orderId, foodId) {
     return this.http.post(this.url + 'order/foodOrder/save', { orderId, foodId }, { responseType: 'text' });
   }
+
+  saveOrderChange(restaurantId, dateOfOrder, notesOrder, statusOrder, userId, id) {
+    return this.http.post(this.url + 'order/saveChange', { restaurantId, dateOfOrder, notesOrder, statusOrder, userId, id }, { responseType: 'text' });
+  }
+
+
   addToFavorites(idRestaurant) {
     let headers = this.getHeaders;
     return this.http.get(this.url + 'addToFavorites/' + idRestaurant, { headers })

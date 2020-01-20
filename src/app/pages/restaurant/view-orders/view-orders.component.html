@@ -1,1 +1,31 @@
-<p>view-orders works!</p>
+<h3>Orders</h3>
+<mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select [(ngModel)]="statusType" (ngModelChange)='getOrders(restaurant.id,statusType)'>
+        <mat-option value="InProgress">In Progress</mat-option>
+        <mat-option value="Canceled">Canceled</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+    </mat-select>
+</mat-form-field><br>
+<mat-accordion>
+    <mat-expansion-panel *ngFor='let element of orders'>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{element.dateOfOrder}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{element.notesOrder}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+            <mat-select #t [(ngModel)]="element.statusOrder" (ngModelChange)='test(element.statusOrder)'>
+                <mat-option value="InProgress">In Progress</mat-option>
+                <mat-option value="Canceled">Canceled</mat-option>
+                <mat-option value="Completed">Completed</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-stroked-button (click)='saveOrder(element)'>
+            Save
+        </button>
+    </mat-expansion-panel>
+</mat-accordion>

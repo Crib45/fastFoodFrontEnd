@@ -44,7 +44,7 @@ export class CartComponent implements OnInit {
   }
 
   saveOrder() {
-    this.service.saveOrder(this.restaurant, this.date, this.notes, this.status, this.userInfo, this.foodOrderList).subscribe(data => {
+    this.service.saveOrder(this.restaurant, this.date, this.notes, this.status, this.userInfo).subscribe(data => {
       this.orderId = data;
       console.log(this.orderId)
       if (this.orderId != null) {

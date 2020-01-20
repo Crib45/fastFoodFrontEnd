@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatCardModule, MatDialogModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatDialogModule, MatIconModule, MatExpansionModule, MatSelectModule } from '@angular/material';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RouterModule } from '@angular/router';
@@ -60,6 +60,8 @@ import { FavoritesDialogComponent } from './pages/favorites-dialog/favorites-dia
     MatTableModule,
     MatDialogModule,
     MatIconModule,
+    MatSelectModule,
+    MatExpansionModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },

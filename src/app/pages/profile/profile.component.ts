@@ -80,6 +80,7 @@ export class ProfileComponent implements OnInit {
   checkOrders(restaurant) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
     dialogConfig.data = {
       restaurant: restaurant
     };

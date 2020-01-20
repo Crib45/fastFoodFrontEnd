@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource } from "@angular/material";
 import { BackendService } from 'src/app/services/backend.service';
 import { stat } from 'fs';
 
@@ -12,7 +12,10 @@ import { stat } from 'fs';
 export class ViewOrdersComponent implements OnInit {
   restaurant: any;
   orders;
-
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'remove'];
+  dataSource = new MatTableDataSource<any>([]);
+  returnMessage;
+  statusType = 'InProgress';
   constructor(private dialogRef: MatDialogRef<ViewOrdersComponent>, private service: BackendService,
     @Inject(MAT_DIALOG_DATA) data) {
     this.restaurant = data.restaurant;
@@ -31,8 +34,19 @@ export class ViewOrdersComponent implements OnInit {
   }
 
 
+  saveOrder(element) {
+    console.log(element)
+    this.service.saveOrderChange(element.restaurantId, element.dateOfOrder, element.notesOrder, element.statusOrder, element.userId, element.id).subscribe(data => {
+      this.returnMessage = data;
+      this.getOrders(this.restaurant.id, this.statusType);
+    })
+  }
+
   close() {
     this.dialogRef.close();
   }
 
+  test(asd) {
+    console.log(asd)
+  }
 }
