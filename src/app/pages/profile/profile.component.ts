@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   userInfo;
   returnMessage: Object;
   ownedRestaurants: any;
-  displayedColumns: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'manageEmployees', 'checkOrders'];
+  displayedColumns: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'checkOrders'];
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns1: string[] = ['restaurantName', 'restauranDescription', 'editRestaurant', 'checkOrders'];
   dataSource1 = new MatTableDataSource<any>([]);

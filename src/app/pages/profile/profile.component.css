@@ -11,11 +11,14 @@ table td {
 }
 
 .mat-column-restaurantName{
-    width: 30% !important;
+    width: 15% !important;
 }
 .mat-column-restauranDescription{
     width: 50% !important;
 }
 .mat-column-editRestaurant{
-    width: 19% !important;
+    width: 30% !important;
+}
+.editEmployeesBtn{
+    margin-left: 1%;
 }
